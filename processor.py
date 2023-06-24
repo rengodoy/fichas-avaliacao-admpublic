@@ -1,12 +1,10 @@
 from PyPDF2 import PdfReader
 import re
 import os
-from unidecode import unidecode
 from docx import Document
 from chardet.universaldetector import UniversalDetector
-import spacy
 from pdf2docx import Converter
-import os, string
+import os
 
 
 pares_substituicao = [
@@ -81,12 +79,6 @@ def escreve_arquivo(texto, nome_arquivo, cabecalho):
         arquivo.write('\n' + '**** ' + cabecalho + '\n')
         arquivo.write(texto + '\n')
 
-# def nome_arquivo(texto):
-#     caracteres_especiais = '[^A-Za-z0-9 ]+'
-#     texto = texto.replace(' ', '_')
-#     texto = unidecode(texto.lower())
-#     texto = re.sub(caracteres_especiais, '', texto)
-#     return texto
 
 # Processa cada arquivo PDF
 def convert_pdf_docx(arquivo, arquivo_destino):
@@ -195,19 +187,6 @@ def remove_expressoes(texto):
     for expressao in expressoes:
         texto = re.sub(r'\b' + expressao + r'\b', '', texto, flags=re.IGNORECASE)
     return texto
-
-def remove_artigos(texto):
-    # Carregar o modelo de linguagem português
-    nlp = spacy.load('pt_core_news_lg')
-
-    # Processar o texto com o spaCy
-    doc = nlp(texto)
-
-    # Gerar o texto sem os artigos
-    texto_sem_artigos = ' '.join([token.text for token in doc if token.pos_ != 'DET'])
-
-    return texto_sem_artigos
-
 
 # Combina todas as funções
 def processa_texto(texto):

@@ -11,3 +11,5 @@ Este script é um processador de texto que funciona com arquivos de texto em for
 Na segunda parte do script, há um conjunto de funções de processamento de texto que realizam várias operações, incluindo a remoção de quebras de linha e tabulações, a reordenação de enclises para próclises, a substituição de termos definidos em um dicionário predefinido, o tratamento de locuções substantivas, a substituição de hífens, a remoção de caracteres e expressões específicas e a eliminação de artigos. No final, o script combina todas essas funções de processamento de texto em uma única função que é aplicada a todos os arquivos na pasta especificada, resultando em um corpus de texto unificado e simplificado que é escrito em um arquivo de saída chamado 'corpus_textual.txt'.
 
 Para reproduzir o resultado obtido é necessário instalar as bibliotecas de "requirements.txt"
+
+> A versão do Python utilizada é a 3.11.4
